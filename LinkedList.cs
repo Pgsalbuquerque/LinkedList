@@ -32,7 +32,7 @@ namespace LinkedList
             {
                 Node Pointer = head;
 
-                Pointer.setNext(Value);
+                Pointer.next = new Node(Value);
                 size += 1;
 
                 Console.WriteLine("The Value: " + Value + " has been added");
@@ -45,7 +45,7 @@ namespace LinkedList
                     Pointer = Pointer.next;
                 }
 
-                Pointer.setNext(Value);
+                Pointer.next = new Node(Value);
                 size += 1;
 
                 Console.WriteLine("The Value: " + Value + " has been added");
@@ -97,7 +97,7 @@ namespace LinkedList
 
                 if ((size - 1) == index)
                 {
-                    Pointer.resetNext();
+                    Pointer.next = null;
                     size -= 1;
                     Console.WriteLine("The Position: " + index + " has been removed");
                 }
@@ -114,7 +114,7 @@ namespace LinkedList
 
         public void removeAll()
         {
-            head = new Node();
+            head = null;
             size = 0;
         }
 
@@ -177,17 +177,28 @@ namespace LinkedList
         public int? returnIndexOfFirstValue(string Value)
         {
             Node Pointer = head;
+            int index = -1;
             if (Pointer.value == Value)
             {
-                return 0;
+                index = 0;
             }
-            for (int n = 1; n < size; n++) {
-                Pointer = Pointer.next;
-                if (Pointer.value == Value)
+            else {
+                for (int n = 1; n < size; n++)
                 {
-                    return n;
+                    Pointer = Pointer.next;
+                    if (Pointer.value == Value)
+                    {
+                        index = n;
+                        break;
+                    }
                 }
             }
+            
+            if (index != -1)
+            {
+                return index;
+            }
+
             Console.WriteLine("The Value doesn't exist in list");
             return null;
         }
@@ -218,26 +229,19 @@ namespace LinkedList
 
         public string? returnValue(int index)
         {
-            Node Pointer = head;
-            if (index >= size || index < 0)
+            if (index >= 0 && index < size)
             {
-                Console.WriteLine("List out of range");
-                return null;
-            }
-            else if (index == 0)
-            {
-                return Pointer.value;
-            }
-            else
-            {
+                Node Pointer = head;
                 for (int n = 1; n<=index; n++)
                 {
                     Pointer = Pointer.next;
                 }
-
                 return Pointer.value;
             }
-            
+
+            Console.WriteLine("List out of range");
+            return null;
+
         }
 
     }

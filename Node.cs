@@ -16,27 +16,6 @@ namespace LinkedList
             value = Value;
         }
 
-        public Node()
-        {
-            
-        }
-
-        public void setNext(string Value)
-        {
-            next = new Node(Value);
-
-        }
-
-        public void resetNext()
-        {
-            next = new Node();
-        }
-
-
-        public void setValue(string Value)
-        {
-            value = Value;
-        }
 
         public override string ToString()
         {

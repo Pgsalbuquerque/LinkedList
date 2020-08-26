@@ -22,16 +22,16 @@ namespace LinkedList
 
             //list.removeAll(); remove all elements
 
-            int? n1 = list.returnIndexOfFirstValue("5");
-            Console.WriteLine("Index of first value 5 is: "+ n1);
+            int? n1 = list.returnIndexOfFirstValue("9");
+            Console.WriteLine("Index of first value 9 is: "+ n1);
             Console.WriteLine("------------------");
 
             int? n2 = list.returnIndexOfLastValue("5");
             Console.WriteLine("Index of last value 5 is: " + n2);
             Console.WriteLine("------------------");
 
-            string? value = list.returnValue(2);
-            Console.WriteLine("Value of index 2 is: " + value);
+            string? value = list.returnValue(0);
+            Console.WriteLine("Value of index 0 is: " + value);
             Console.WriteLine("------------------");
 
 
